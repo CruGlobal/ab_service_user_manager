@@ -54,7 +54,8 @@ module.exports = {
 
       // get the AB for the current tenant
       ABBootstrap.init(req)
-         .then(async (AB) => { // eslint-disable-line
+         .then(async (AB) => {
+            // eslint-disable-line
 
             req.log(req.param("email"));
             req.log(req.param("url"));
@@ -118,7 +119,7 @@ module.exports = {
                {
                   email: emailDef,
                },
-               (err, results) => {
+               (err /*, _results*/) => {
                   if (err) {
                      req.notify.developer(err, {
                         context:
