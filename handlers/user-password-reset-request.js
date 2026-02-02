@@ -54,7 +54,8 @@ module.exports = {
 
       // get the AB for the current tenant
       ABBootstrap.init(req)
-         .then(async (AB) => { // eslint-disable-line
+         .then(async (AB) => {
+            // eslint-disable-line
 
             req.log(req.param("email"));
             req.log(req.param("url"));
@@ -108,9 +109,9 @@ module.exports = {
             const emailDef = {
                to: user.email,
                from: "no-reply@digiserve.org", // TODO: pull this from somewhere?
-               subject: "Test: Reset Password",
-               text: ` (just testing) visit this url to reset password: http://${responseURL}`,
-               html: ` <p> <b>(just testing)</b> click <a href="${responseURL}">here</a> to reset password </p> `,
+               subject: "Forgotten your password?",
+               text: `Visit this url to reset your password: ${responseURL}`,
+               html: `<p>Click <a href="${responseURL}">here</a> to reset your password.</p> `,
             };
 
             req.serviceRequest(
@@ -118,7 +119,7 @@ module.exports = {
                {
                   email: emailDef,
                },
-               (err, results) => {
+               (err /*, _results*/) => {
                   if (err) {
                      req.notify.developer(err, {
                         context:
