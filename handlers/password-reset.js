@@ -96,7 +96,8 @@ module.exports = {
          })
          .catch((err) => {
             req.notify.developer(err, {
-               context: "Service:user_manager.password-reset: Error initializing ABFactory",
+               context:
+                  "Service:user_manager.password-reset: Error initializing ABFactory",
             });
             cb(err);
          });

@@ -84,7 +84,7 @@ module.exports = {
 
             if (Object.keys(cond).length == 0) {
                const error = new Error(
-                  "Must include either uuid, username, authname, or email parameters"
+                  "Must include either uuid, username, authname, or email parameters",
                );
                cb(error);
                return;
@@ -96,7 +96,7 @@ module.exports = {
 
             try {
                const list = await req.retry(() =>
-                  User.model().find({ where: cond, populate: false })
+                  User.model().find({ where: cond, populate: false }),
                );
                if (!list || !list[0]) {
                   cb(null, null);
@@ -107,7 +107,7 @@ module.exports = {
                      Role.model().find({
                         where: { users: [user.username] },
                         // populate: true,
-                     })
+                     }),
                   );
                   user.SITE_ROLE = roles.map((r) => {
                      return { uuid: r.uuid };

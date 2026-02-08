@@ -61,7 +61,7 @@ module.exports = {
             const cond = { email: req.param("email") };
             const User = AB.objectUser();
             const list = await req.retry(() =>
-               User.model().find({ where: cond, populate: false })
+               User.model().find({ where: cond, populate: false }),
             );
 
             if (!list || !list[0]) {
@@ -97,7 +97,7 @@ module.exports = {
 
             const SiteToken = AB.objectToken();
             await req.retry(() =>
-               SiteToken.model().create({ token, context, expires })
+               SiteToken.model().create({ token, context, expires }),
             );
             req.log("newToken:", token);
 
@@ -126,7 +126,7 @@ module.exports = {
                   const responseURL = `${url}auth/password/reset?a=${token}&t=${req.tenantID()}`;
 
                   cb(null, { data: responseURL });
-               }
+               },
             );
          })
          .catch((err) => {

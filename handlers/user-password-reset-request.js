@@ -55,8 +55,6 @@ module.exports = {
       // get the AB for the current tenant
       ABBootstrap.init(req)
          .then(async (AB) => {
-            // eslint-disable-line
-
             req.log(req.param("email"));
             req.log(req.param("url"));
             req.log(req.param("fromService") || null);
@@ -65,7 +63,7 @@ module.exports = {
             const cond = { email: req.param("email") };
             const User = AB.objectUser();
             const list = await req.retry(() =>
-               User.model().find({ where: cond, populate: false })
+               User.model().find({ where: cond, populate: false }),
             );
             if (!list || !list[0]) {
                // Q: is there any additional management in this case?
@@ -96,7 +94,7 @@ module.exports = {
 
             const SiteToken = AB.objectToken();
             await req.retry(() =>
-               SiteToken.model().create({ token, context, expires })
+               SiteToken.model().create({ token, context, expires }),
             );
             req.log("newToken:", token);
 
@@ -130,7 +128,7 @@ module.exports = {
                      return;
                   }
                   cb(null, { status: "success" });
-               }
+               },
             );
          })
          .catch((err) => {
