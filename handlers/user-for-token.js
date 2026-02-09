@@ -44,7 +44,7 @@ module.exports = {
 
          const SiteToken = AB.objectToken();
          const list = await req.retry(() =>
-            SiteToken.model().find({ token, expires: { ">": Date.now() } })
+            SiteToken.model().find({ token, expires: { ">": Date.now() } }),
          );
          const row = list[0];
          if (!row) {
@@ -62,7 +62,7 @@ module.exports = {
             User.model().find({
                where: { username: row.context.username },
                populate: ["SITE_ROLE", "SITE_USER"],
-            })
+            }),
          );
          const user = utils.safeUser(uList[0]);
          req.log("foundUser:", user);

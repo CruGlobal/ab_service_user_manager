@@ -84,7 +84,7 @@ module.exports = {
                   if (user && user.failedLogins > config.maxFailedLogins) {
                      req.log("Too many failed attempts");
                      var errorFailedAttempts = new Error(
-                        "Too many failed attempts. Please contact an admin."
+                        "Too many failed attempts. Please contact an admin.",
                      );
                      errorFailedAttempts.code = "EFAILEDATTEMPTS";
                      cb(errorFailedAttempts);
@@ -99,7 +99,7 @@ module.exports = {
                            } else {
                               req.log("invalid password.");
                               var pwError = new Error(
-                                 "invalid username/password"
+                                 "invalid username/password",
                               );
                               pwError.code = "EINVALIDLOGIN";
                               cb(pwError);

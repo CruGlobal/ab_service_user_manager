@@ -62,7 +62,7 @@ module.exports = {
             req.log(
                `user[${user.username}] with roles:[${list
                   .map((l) => l.uuid)
-                  .join(", ")}]`
+                  .join(", ")}]`,
             );
             cb(null, user);
          })

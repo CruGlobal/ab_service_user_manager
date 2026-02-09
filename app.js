@@ -9,7 +9,7 @@ if (AB.defaults.env("TELEMETRY_PROVIDER", "sentry") == "sentry") {
    AB.telemetry.init("sentry", {
       dsn: AB.defaults.env(
          "SENTRY_DSN",
-         "https://74d87e0653ba19e70a16e38945dc847d@o144358.ingest.sentry.io/4506143933202432"
+         "https://74d87e0653ba19e70a16e38945dc847d@o144358.ingest.sentry.io/4506143933202432",
       ),
       release: version,
    });
