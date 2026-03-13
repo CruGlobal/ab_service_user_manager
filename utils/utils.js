@@ -2,9 +2,9 @@
  * Tenant.js
  * define our DB operations.
  */
-const crypto = require("crypto");
+import crypto from "crypto";
 
-module.exports = {
+export default {
    /**
     * Returns a hex string of 32 random bytes for use as the user's password
     * salt.

@@ -2,9 +2,9 @@
  * user-version-cache-stale
  * remove stale user versions from our cache
  */
-const ABBootstrap = require("../AppBuilder/ABBootstrap");
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

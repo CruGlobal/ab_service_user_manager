@@ -2,14 +2,13 @@
  * user-find-password
  * our Request handler.
  */
-const utils = require("../utils/utils");
-
-const ABBootstrap = require("../AppBuilder/ABBootstrap");
+import utils from "../utils/utils.js";
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
 // {ABBootstrap}
 // responsible for initializing and returning an {ABFactory} that will work
 // with the current tenant for the incoming request.
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

@@ -4,14 +4,14 @@
  * configuration.
  */
 
-const ABBootstrap = require("../AppBuilder/ABBootstrap");
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
 // {ABBootstrap}
 // responsible for initializing and returning an {ABFactory} that will work
 // with the current tenant for the incoming request.
 
 // const cleanReturnData = require("../AppBuilder/utils/cleanReturnData");
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
