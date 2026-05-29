@@ -1,6 +1,6 @@
 {
    "name": "user_manager",
-   "version": "1.2.23+p11413.c21502",
+   "version": "1.2.24+p11414",
    "description": "(AppBuilder) A microservice for managing Users",
    "main": "app.js",
    "author": "Johnny Hausman",
@@ -13,7 +13,7 @@
       "moment": "^2.29.1",
       "nanoid": "^3.3.7",
       "objection": "^3.1.5",
-      "semver": "^7.8.0",
+      "semver": "^7.8.1",
       "xml-js": "^1.6.11"
    },
    "scripts": {
