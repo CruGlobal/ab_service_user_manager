@@ -1,4 +1,4 @@
-module.exports = function (req, username) {
+export default function (req, username) {
    return new Promise((resolve, reject) => {
       let tenantDB = req.tenantDB();
       if (tenantDB != "") {
@@ -28,4 +28,4 @@ WHERE \`uuid\` IN (
          }
       });
    });
-};
+}

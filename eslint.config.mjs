@@ -8,6 +8,7 @@ import eslintConfigPrettier from "eslint-config-prettier/flat";
 import eslintPluginPrettier from "eslint-plugin-prettier";
 
 export default [
+   { ignores: ["AppBuilder/**"] },
    js.configs.recommended,
 
    // Main project: Node + ES2022, Prettier, custom rules

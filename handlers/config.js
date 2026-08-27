@@ -2,9 +2,9 @@
  * config
  * add the necessary UI config information for the provided user
  */
-const sqlFindRolesByUser = require("../queries/findRolesByUser.js");
+import sqlFindRolesByUser from "../queries/findRolesByUser.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
