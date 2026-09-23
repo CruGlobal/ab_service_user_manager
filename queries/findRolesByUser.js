@@ -1,11 +1,11 @@
-module.exports = function (req, username) {
+export default function (req, username) {
    return new Promise((resolve, reject) => {
       let tenantDB = req.tenantDB();
       if (tenantDB != "") {
          tenantDB += ".";
       } else {
          let errorNoTenant = new Error(
-            `Unable to find tenant information for tenantID[${req.tenantID()}]`
+            `Unable to find tenant information for tenantID[${req.tenantID()}]`,
          );
          reject(errorNoTenant);
          return;
@@ -19,7 +19,7 @@ WHERE \`uuid\` IN (
 	WHERE \`USER\` = ?
 )`;
 
-      req.query(sql, [username], (error, results, fields) => {
+      req.query(sql, [username], (error, results /*, fields*/) => {
          if (error) {
             req.log(sql);
             reject(error);
@@ -28,4 +28,4 @@ WHERE \`uuid\` IN (
          }
       });
    });
-};
+}

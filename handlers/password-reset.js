@@ -3,12 +3,12 @@
  * our Request handler.
  */
 
-const ABBootstrap = require("../AppBuilder/ABBootstrap");
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
 // {ABBootstrap}
 // responsible for initializing and returning an {ABFactory} that will work
 // with the current tenant for the incoming request.
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -96,7 +96,8 @@ module.exports = {
          })
          .catch((err) => {
             req.notify.developer(err, {
-               context: "Service:user_manager.password-reset: Error initializing ABFactory",
+               context:
+                  "Service:user_manager.password-reset: Error initializing ABFactory",
             });
             cb(err);
          });

@@ -2,9 +2,9 @@
  * new-user-password
  * generate a password for a user entry.
  */
-const utils = require("../utils/utils");
+import utils from "../utils/utils.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

@@ -3,8 +3,8 @@
  * return the bootstrap version information needed for the given user.
  */
 
-const ABBootstrap = require("../AppBuilder/ABBootstrap.js");
-const UMConfig = require("./config.js");
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
+import UMConfig from "./config.js";
 
 /**
  * @function hashCode()
@@ -20,11 +20,11 @@ function hashCode(str) {
       .reduce(
          (prevHash, currVal) =>
             ((prevHash << 5) - prevHash + currVal.charCodeAt(0)) | 0,
-         0
+         0,
       );
 }
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

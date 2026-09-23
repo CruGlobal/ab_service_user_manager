@@ -2,9 +2,9 @@
  * config
  * add the necessary UI config information for the provided user
  */
-const sqlFindRolesByUser = require("../queries/findRolesByUser.js");
+import sqlFindRolesByUser from "../queries/findRolesByUser.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -62,7 +62,7 @@ module.exports = {
             req.log(
                `user[${user.username}] with roles:[${list
                   .map((l) => l.uuid)
-                  .join(", ")}]`
+                  .join(", ")}]`,
             );
             cb(null, user);
          })

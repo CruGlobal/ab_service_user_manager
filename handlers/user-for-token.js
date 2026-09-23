@@ -2,14 +2,13 @@
  * user-for-token
  * our Request handler.
  */
-const utils = require("../utils/utils");
-
-const ABBootstrap = require("../AppBuilder/ABBootstrap");
+import utils from "../utils/utils.js";
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
 // {ABBootstrap}
 // responsible for initializing and returning an {ABFactory} that will work
 // with the current tenant for the incoming request.
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -44,7 +43,7 @@ module.exports = {
 
          const SiteToken = AB.objectToken();
          const list = await req.retry(() =>
-            SiteToken.model().find({ token, expires: { ">": Date.now() } })
+            SiteToken.model().find({ token, expires: { ">": Date.now() } }),
          );
          const row = list[0];
          if (!row) {
@@ -62,7 +61,7 @@ module.exports = {
             User.model().find({
                where: { username: row.context.username },
                populate: ["SITE_ROLE", "SITE_USER"],
-            })
+            }),
          );
          const user = utils.safeUser(uList[0]);
          req.log("foundUser:", user);

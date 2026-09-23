@@ -2,14 +2,13 @@
  * user-find-password
  * our Request handler.
  */
-const utils = require("../utils/utils");
-
-const ABBootstrap = require("../AppBuilder/ABBootstrap");
+import utils from "../utils/utils.js";
+import ABBootstrap from "../AppBuilder/ABBootstrap.js";
 // {ABBootstrap}
 // responsible for initializing and returning an {ABFactory} that will work
 // with the current tenant for the incoming request.
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -84,7 +83,7 @@ module.exports = {
                   if (user && user.failedLogins > config.maxFailedLogins) {
                      req.log("Too many failed attempts");
                      var errorFailedAttempts = new Error(
-                        "Too many failed attempts. Please contact an admin."
+                        "Too many failed attempts. Please contact an admin.",
                      );
                      errorFailedAttempts.code = "EFAILEDATTEMPTS";
                      cb(errorFailedAttempts);
@@ -99,7 +98,7 @@ module.exports = {
                            } else {
                               req.log("invalid password.");
                               var pwError = new Error(
-                                 "invalid username/password"
+                                 "invalid username/password",
                               );
                               pwError.code = "EINVALIDLOGIN";
                               cb(pwError);
