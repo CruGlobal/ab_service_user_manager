@@ -1,7 +1,7 @@
 {
    "name": "user_manager",
    "type": "module",
-   "version": "1.2.29+p11420.c22000",
+   "version": "1.2.30+p11422.c22001",
    "description": "(AppBuilder) A microservice for managing Users",
    "main": "app.js",
    "author": "Johnny Hausman",
